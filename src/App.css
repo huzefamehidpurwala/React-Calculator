@@ -1,0 +1,104 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+.App {
+    /* text-align: center; */
+    background: linear-gradient(to right, #451952, #ae445a);
+    /* background-color: #282c34; */
+    font-family: "Anonymous Pro";
+    color: white;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-grid {
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+/* .output-bg {
+} */
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-evenly;
+    min-height: fit-content;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 0.75rem;
+    border: 3px solid black;
+}
+
+.prev-operand {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.current-operand {
+    font-size: xx-large;
+}
+
+/* .animation-tag {
+    position: relative;
+    top: 50%;
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);
+} */
+
+/* Animation */
+.anim-typewriter {
+    max-height: fit-content;
+    border-right: 0.15em solid rgba(255, 255, 255, 0.75); /* The typwriter cursor */
+    animation: blinkTextCursor 500ms steps(44) infinite normal;
+    /* typewriter 4s steps(44) 1s 1 normal both, */
+}
+
+/* @keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 24em;
+    }
+} */
+
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
+.calculator-grid > button {
+    font-family: inherit  ;
+    font-size: 2rem;
+    border: 2px solid black;
+    background-color: rgba(102, 37, 73, 1);
+    cursor: pointer;
+    color: #d4adfc;
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+    background-color: rgba(134, 54, 99, 0.5);
+}
