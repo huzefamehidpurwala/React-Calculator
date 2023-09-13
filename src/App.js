@@ -30,7 +30,7 @@ function App() {
                 currentOperand !== "0" &&
                 setPrevOperand(currentOperand);
         }
-    }
+    };
 
     const HandleClear = (event) => {
         if (event.target.id === "clear") {
