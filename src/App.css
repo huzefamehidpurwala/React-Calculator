@@ -162,4 +162,5 @@
   font-family: inherit;
   font-size: 2rem;
   cursor: pointer;
+  border-top: 0 !important;
 }
