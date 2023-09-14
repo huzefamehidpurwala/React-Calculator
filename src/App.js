@@ -64,6 +64,7 @@ function App() {
           width="40"
           height="40"
           src={`${arrThemeSrc[theme % 2]}`}
+          alt=""
         />
       </div>
 
