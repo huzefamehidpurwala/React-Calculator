@@ -2,18 +2,18 @@
 
 /* ====== LIGHT THEME ===== */
 .bg-light.App {
-  background: linear-gradient(to right, #f7a76c, #e0d98c);
   color: grey;
+  background: linear-gradient(to right, #f7a76c, #e0d98c);
 }
 
 .bg-light.App ::selection {
-  background-color: rgba(0, 0, 0, 0.5);
   color: #ec7272;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .bg-light.output {
-  background-color: rgba(255, 255, 255, 0.15);
   border: 3px solid grey;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .bg-light.prev-operand {
@@ -21,8 +21,8 @@
 }
 
 .bg-light.calculator-grid > button {
-  border: 2px solid grey;
   color: #ec7272;
+  border: 2px solid grey;
 }
 
 .bg-light.calculator-grid > button:hover {
@@ -36,18 +36,18 @@
 
 /* ====== DARK THEME ===== */
 .bg-dark.App {
-  background: linear-gradient(to right, #451952, #ae445a);
   color: grey;
+  background: linear-gradient(to right, #451952, #ae445a);
 }
 
 .bg-dark.App ::selection {
-  background-color: rgba(255, 255, 255, 0.5);
   /* color: #d4adfc; */
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .bg-dark.output {
-  background-color: rgba(0, 0, 0, 0.25);
   border: 3px solid black;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .bg-dark.prev-operand {
@@ -55,8 +55,8 @@
 }
 
 .bg-dark.calculator-grid > button {
-  border: 2px solid black;
   color: #d4adfc;
+  border: 2px solid black;
 }
 
 .bg-dark.calculator-grid > button:hover {
@@ -69,30 +69,30 @@
 }
 
 .App {
-  /* text-align: center; */
-  /* background-color: #282c34; */
-  font-family: "Anonymous Pro";
-  min-height: 100vh;
-  min-width: 100vw;
-  position: absolute;
   display: flex;
-  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  position: absolute;
   align-items: center;
+  justify-content: center;
+  /* text-align: center; */
+  font-family: "Anonymous Pro";
+  /* background-color: #282c34; */
 }
 
 .logo-btn {
-  position: fixed;
   top: 2%;
   right: 3%;
   display: flex;
-  align-items: center;
+  position: fixed;
   font-size: x-large;
+  align-items: center;
 }
 
 .logo-btn > button {
+  border: none;
   cursor: pointer;
   background-color: inherit;
-  border: none;
 }
 
 .logo-btn > p {
@@ -114,15 +114,15 @@
 } */
 
 .output {
-  grid-column: 1 / -1;
   display: flex;
-  flex-direction: column;
   align-items: end;
-  justify-content: space-evenly;
-  min-height: fit-content;
+  padding: 0.75rem;
+  grid-column: 1 / -1;
   word-wrap: break-word;
   word-break: break-all;
-  padding: 0.75rem;
+  flex-direction: column;
+  min-height: fit-content;
+  justify-content: space-evenly;
 }
 
 .prev-operand {
@@ -132,8 +132,8 @@
 .current-operand {
   font-size: xx-large;
   -webkit-user-select: text; /* Safari */
-  -ms-user-select: text; /* IE 10 and IE 11 */
   user-select: text; /* Standard syntax */
+  -ms-user-select: text; /* IE 10 and IE 11 */
 }
 
 /* .animation-tag {
@@ -152,9 +152,9 @@
 /* Animation */
 .anim-typewriter {
   max-height: fit-content;
-  border-right: 0.15em solid rgba(0, 0, 0, 0.75); /* The typwriter cursor */
-  animation: blinkTextCursor 500ms steps(44) infinite normal;
   /* typewriter 4s steps(44) 1s 1 normal both, */
+  animation: blinkTextCursor 500ms steps(44) infinite normal;
+  border-right: 0.15em solid rgba(0, 0, 0, 0.75); /* The typwriter cursor */
 }
 
 /* @keyframes typewriter {
@@ -176,8 +176,8 @@
 }
 
 .calculator-grid > button {
-  font-family: inherit;
   font-size: 2rem;
   cursor: pointer;
+  font-family: inherit;
   border-top: 0 !important;
 }

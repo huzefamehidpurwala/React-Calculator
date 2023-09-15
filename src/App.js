@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
@@ -11,11 +11,9 @@ function App() {
     "https://img.icons8.com/external-linear-outline-icons-papa-vector/40/external-Light-Mode-interface-linear-outline-icons-papa-vector.png",
     "https://img.icons8.com/ios-glyphs/40/moon-symbol.png",
   ];
-  const [theme, setTheme] = useState(1);
+  const [theme, setTheme] = useState(0);
 
   const HandleBtnClick = (event) => {
-    // console.log(event.target.id === "del");
-
     // if (event.target.id === "del") {
     //     setCurrentOperand(prevStatus);
     // }
@@ -25,28 +23,65 @@ function App() {
     currentOperand !== "0"
       ? setCurrentOperand(currentOperand + event?.target?.innerHTML)
       : setCurrentOperand(event?.target?.innerHTML);
+
+    // console.log("btn click= ", currentOperand);
   };
 
   const HandleEq = (event) => {
-    if (event.target.id === "eq") {
-      const pattern = /([÷x+\-])/;
-      const arrOfInp = currentOperand?.split(pattern).filter(Boolean);
-      console.log(arrOfInp);
-      currentOperand &&
-        currentOperand !== "0" &&
-        setPrevOperand(currentOperand);
+    if (event.target.id === "eq" && currentOperand && currentOperand !== "0") {
+      const pattern = /([÷×+-])/;
+      const strArrOfInp = currentOperand?.split(pattern);
+      // console.log(strArrOfInp);
+
+      const numArrOfInp = strArrOfInp.map((x, index) => {
+        if (!isNaN(x) && x) {
+          return parseFloat(x);
+        } else if (!pattern.test(x)) {
+          return 0;
+        } else {
+          return x;
+        }
+      });
+      // console.log("num ===", numArrOfInp);
+
+      setPrevOperand(currentOperand);
+      // setPrevStatus([]);
     }
   };
 
   const HandleClear = (event) => {
-    if (event.target.id === "clear") {
-      setCurrentOperand("0");
-      // console.log("clear");
+    setCurrentOperand("0");
+    // console.log("clear");
+    setPrevOperand("");
+    setPrevStatus([]);
+  };
+
+  const UpdatePrevStatus = () => {
+    // Use the spread operator to create a new array with the currentOperand
+    const updatedStatus =
+      currentOperand === "0" ? [] : [...prevStatus, currentOperand];
+
+    // Update prevStatus using setPrevStatus
+    setPrevStatus(updatedStatus);
+  };
+
+  const HandleDelete = () => {
+    if (prevStatus.length === 1) {
       setPrevOperand("");
+      setCurrentOperand("0");
+    } else if (prevStatus.length > 0) {
+      setPrevOperand("");
+      prevStatus.pop();
+      const str = prevStatus.pop();
+      setCurrentOperand(str);
+    } else {
+      HandleClear();
     }
   };
 
-  console.log("prevStatus", prevStatus);
+  useEffect(() => {
+    currentOperand && currentOperand !== "0" && UpdatePrevStatus();
+  }, [currentOperand]);
 
   return (
     <div className={`${arrTheme[theme % 2]} App`}>
@@ -85,7 +120,7 @@ function App() {
         <button onClick={HandleClear} id="clear" className="span-two">
           AC
         </button>
-        <button onClick={HandleBtnClick} id="del">
+        <button onClick={HandleDelete} id="del">
           DEL
         </button>
         <button onClick={HandleBtnClick} id="div">
