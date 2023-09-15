@@ -6,6 +6,11 @@
   color: grey;
 }
 
+.bg-light.App ::selection {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ec7272;
+}
+
 .bg-light.output {
   background-color: rgba(255, 255, 255, 0.15);
   border: 3px solid grey;
@@ -17,19 +22,27 @@
 
 .bg-light.calculator-grid > button {
   border: 2px solid grey;
-  background-color: #e0d98c;
   color: #ec7272;
 }
 
-.bg-light.calculator-grid > button:hover,
-.bg-light.calculator-grid > button:focus {
+.bg-light.calculator-grid > button:hover {
   background-color: rgba(224, 217, 140, 0.5);
+}
+
+.bg-light.calculator-grid > button,
+.bg-light.calculator-grid > button:active {
+  background-color: #e0d98c;
 }
 
 /* ====== DARK THEME ===== */
 .bg-dark.App {
   background: linear-gradient(to right, #451952, #ae445a);
   color: grey;
+}
+
+.bg-dark.App ::selection {
+  background-color: rgba(255, 255, 255, 0.5);
+  /* color: #d4adfc; */
 }
 
 .bg-dark.output {
@@ -43,13 +56,16 @@
 
 .bg-dark.calculator-grid > button {
   border: 2px solid black;
-  background-color: rgba(102, 37, 73, 1);
   color: #d4adfc;
 }
 
-.bg-dark.calculator-grid > button:hover,
-.bg-dark.calculator-grid > button:focus {
+.bg-dark.calculator-grid > button:hover {
   background-color: rgba(134, 54, 99, 0.5);
+}
+
+.bg-dark.calculator-grid > button,
+.bg-dark.calculator-grid > button:active {
+  background-color: rgba(102, 37, 73, 1);
 }
 
 .App {
@@ -73,16 +89,14 @@
   font-size: x-large;
 }
 
-.logo-btn > img {
+.logo-btn > button {
   cursor: pointer;
+  background-color: inherit;
+  border: none;
 }
 
 .logo-btn > p {
   color: black;
-}
-
-.white-space {
-  width: 1rem;
 }
 
 .calculator-grid {
@@ -117,6 +131,9 @@
 
 .current-operand {
   font-size: xx-large;
+  -webkit-user-select: text; /* Safari */
+  -ms-user-select: text; /* IE 10 and IE 11 */
+  user-select: text; /* Standard syntax */
 }
 
 /* .animation-tag {

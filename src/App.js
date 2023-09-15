@@ -11,7 +11,7 @@ function App() {
     "https://img.icons8.com/external-linear-outline-icons-papa-vector/40/external-Light-Mode-interface-linear-outline-icons-papa-vector.png",
     "https://img.icons8.com/ios-glyphs/40/moon-symbol.png",
   ];
-  const [theme, setTheme] = useState(0);
+  const [theme, setTheme] = useState(1);
 
   const HandleBtnClick = (event) => {
     // console.log(event.target.id === "del");
@@ -46,10 +46,6 @@ function App() {
     }
   };
 
-  const ChangeTheme = () => {
-    setTheme((t) => t + 1);
-  };
-
   console.log("prevStatus", prevStatus);
 
   return (
@@ -57,15 +53,18 @@ function App() {
       <div className={`${arrTheme[theme % 2]} logo-btn`}>
         <p>Switch Theme to </p>
 
-        <span className="white-space"></span>
-
-        <img
-          onClick={ChangeTheme}
-          width="40"
-          height="40"
-          src={`${arrThemeSrc[theme % 2]}`}
-          alt=""
-        />
+        <button
+          onClick={() => {
+            setTheme((t) => t + 1);
+          }}
+        >
+          <img
+            width="40"
+            height="40"
+            src={`${arrThemeSrc[theme % 2]}`}
+            alt=""
+          />
+        </button>
       </div>
 
       <div className={`${arrTheme[theme % 2]} calculator-grid`}>
